@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template
 import sqlite3
-from pyrasp.pyrasp import FlaskRASP
+#from pyrasp.pyrasp import FlaskRASP
 
 
 app = Flask(__name__)
 
-FlaskRASP(app, conf = 'rasp.json')
+#FlaskRASP(app, conf = 'rasp.json')
 # Vulnerable SQLite database setup
 conn = sqlite3.connect('vulnerable_app.db', check_same_thread=False)
 c = conn.cursor()
