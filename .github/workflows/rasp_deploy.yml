@@ -1,7 +1,12 @@
+name: Rasp deployment
+
 on:
     issues:
       types:
         - opened
+
+    push:
+      branches: [ "main" ]
 
 permissions: write-all
 

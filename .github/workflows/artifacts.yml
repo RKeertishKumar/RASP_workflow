@@ -18,7 +18,7 @@ jobs:
               ref: "main"
 
           - name: Upload RASP Configuration
-            uses: actions/upload-artifact@v3
+            uses: actions/upload-artifact@v4
             with:
                 name: RASP-Configurations
                 path: rasp.json
