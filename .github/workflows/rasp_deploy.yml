@@ -1,0 +1,38 @@
+on:
+    issues:
+      types:
+        - opened
+
+permissions: write-all
+
+jobs:
+    lEmbed-rasp-in-code:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+          with:
+            ref: "main"
+            
+
+        - name: Set up Python
+          uses: actions/setup-python@v3
+          with:
+            python-version: 3.12 
+
+        - name: Install dependencies
+          run: |
+            sudo pip install -r requirements.txt
+        
+        - name: Install pyrasp
+          run: |
+            sudo pip install pyrasp
+        
+        - name: Embed rasp module and configuration file into web server
+          run: |
+            
+            git config user.name RKeertishKumar
+            git config user.email 141417594+RKeertishKumar@users.noreply.github.com
+              
+        
+          
