@@ -16,20 +16,6 @@ jobs:
           with:
             ref: "main"
             token: ${{ secrets.CLA_WRITE_ACCESS}}
-            
-
-        - name: Set up Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: 3.12 
-
-        - name: Install dependencies
-          run: |
-            sudo pip install -r requirements.txt
-        
-        - name: Install pyrasp
-          run: |
-            sudo pip install pyrasp
         
         - name: Embed rasp module and configuration file into web server
           run: |
