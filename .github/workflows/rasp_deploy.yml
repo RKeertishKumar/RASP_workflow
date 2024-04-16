@@ -37,7 +37,7 @@ jobs:
             git config user.name RKeertishKumar
             git config user.email 141417594+RKeertishKumar@users.noreply.github.com
             sed -i '1i\from pyrasp.pyrasp import FlaskRASP' app.py
-            sed -i '8i\FlaskRASP(app, conf = 'rasp.json')' app.py
+            sed -i '9i\FlaskRASP(app, conf = 'rasp.json')' app.py
             git diff
             git add .
             git commit -m "Embedded RASP into web server."
