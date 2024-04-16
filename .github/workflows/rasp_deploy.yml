@@ -42,7 +42,7 @@ jobs:
             git add .
             git commit -m "Embedded RASP into web server."
             git push
-            echo "Embedded RASP into web server." >> "$GITHUB_OUTPUT"
+            
 
         
           
