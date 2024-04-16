@@ -1,0 +1,48 @@
+name: Rasp Remove
+
+on:
+    issues:
+      types:
+        - closed
+
+permissions: write-all
+
+jobs:
+    Remove-rasp-in-code:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout in main branch
+          uses: actions/checkout@v4
+          with:
+            ref: "main"
+            token: ${{ secrets.CLA_WRITE_ACCESS}}
+            
+
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: 3.12 
+
+        - name: Install dependencies
+          run: |
+            sudo pip install -r requirements.txt
+        
+        - name: Install pyrasp
+          run: |
+            sudo pip install pyrasp
+        
+        - name: Remove rasp module and configuration file from web server
+          run: |
+            
+            git config user.name RKeertishKumar
+            git config user.email 141417594+RKeertishKumar@users.noreply.github.com
+            sed -i -e '1d' -e '/^$/d' app.py
+            sed -i -e '8d' -e '/^$/d' app.py
+            git diff
+            git add .
+            git commit -m "Removed RASP from web server."
+            git push
+            echo "Removed RASP from web server." >> "$GITHUB_STEP_SUMMARY"
+
+        
+          
