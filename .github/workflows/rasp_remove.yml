@@ -36,8 +36,8 @@ jobs:
             
             git config user.name RKeertishKumar
             git config user.email 141417594+RKeertishKumar@users.noreply.github.com
-            sed -i -e '1d' -e '/^$/d' app.py
-            sed -i -e '8d' -e '/^$/d' app.py
+            sed -i '1d;/^$/d' app.py
+            #sed -i -e '8d' -e '/^$/d' app.py
             git diff
             git add .
             git commit -m "Removed RASP from web server."
