@@ -42,7 +42,7 @@ jobs:
             git add .
             git commit -m "Removed RASP from web server."
             git push
-            echo "Removed RASP from web server." >> "$GITHUB_STEP_SUMMARY"
+            echo "# Removed RASP from web server." >> "$GITHUB_STEP_SUMMARY"
 
         
           
