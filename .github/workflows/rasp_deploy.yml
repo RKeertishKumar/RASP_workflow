@@ -5,23 +5,21 @@ on:
       types:
         - opened
 
-    push:
-      branches: [ "main" ]
-
 permissions: write-all
 
 jobs:
-    lEmbed-rasp-in-code:
+    Embed-rasp-in-code:
       runs-on: ubuntu-latest
       steps:
-        - name: Checkout code
+        - name: Checkout in main branch
           uses: actions/checkout@v4
           with:
             ref: "main"
+            token: ${{ secrets.CLA_WRITE_ACCESS}}
             
 
         - name: Set up Python
-          uses: actions/setup-python@v3
+          uses: actions/setup-python@v4
           with:
             python-version: 3.12 
 
@@ -38,6 +36,13 @@ jobs:
             
             git config user.name RKeertishKumar
             git config user.email 141417594+RKeertishKumar@users.noreply.github.com
-              
+            sed -i '1i\from pyrasp.pyrasp import FlaskRASP' app.py
+            sed -i '8i\FlaskRASP(app, conf = 'rasp.json')' app.py
+            git diff
+            git add .
+            git commit -m "Embedded RASP into web server."
+            git push
+            echo "Embedded RASP into web server." >> "$GITHUB_OUTPUT"
+
         
           
