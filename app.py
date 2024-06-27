@@ -1,3 +1,4 @@
+from pyrasp.pyrasp import FlaskRASP
 from flask import Flask, request, render_template
 import sqlite3
 #from pyrasp.pyrasp import FlaskRASP
@@ -5,6 +6,7 @@ import sqlite3
 
 app = Flask(__name__)
 
+FlaskRASP(app, conf = rasp.json)
 
 
 
